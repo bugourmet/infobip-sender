@@ -31,13 +31,11 @@ export class InfobipBaseService {
     return response.data;
   }
 
-  private appendHeaders(apiKey: string) {
-    if (!apiKey) throw new Error('API key is not provided.');
-
+  private appendHeaders(apiKey?: string) {
     return {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `App ${apiKey}`,
+      Authorization: `App ${apiKey || ''}`,
     };
   }
 
@@ -50,6 +48,6 @@ export class InfobipBaseService {
       };
     }
 
-    return {};
+    return null;
   }
 }
