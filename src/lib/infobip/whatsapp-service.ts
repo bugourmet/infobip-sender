@@ -25,9 +25,6 @@ export class WhatsAppService
         content: {
           text: message,
         },
-        ...(this.config.notifyUrl && {
-          notifyUrl: this.config.notifyUrl,
-        }),
       },
     });
   }
@@ -48,9 +45,6 @@ export class WhatsAppService
         content: {
           mediaUrl,
         },
-        ...(this.config.notifyUrl && {
-          notifyUrl: this.config.notifyUrl,
-        }),
       },
     });
   }
@@ -75,9 +69,6 @@ export class WhatsAppService
             caption,
           }),
         },
-        ...(this.config.notifyUrl && {
-          notifyUrl: this.config.notifyUrl,
-        }),
       },
     });
   }
@@ -94,9 +85,6 @@ export class WhatsAppService
         content: {
           mediaUrl,
         },
-        ...(this.config.notifyUrl && {
-          notifyUrl: this.config.notifyUrl,
-        }),
       },
     });
   }
@@ -113,9 +101,6 @@ export class WhatsAppService
         content: {
           mediaUrl,
         },
-        ...(this.config.notifyUrl && {
-          notifyUrl: this.config.notifyUrl,
-        }),
       },
     });
   }
@@ -144,9 +129,6 @@ export class WhatsAppService
             },
           },
         ],
-        ...(this.config.notifyUrl && {
-          notifyUrl: this.config.notifyUrl,
-        }),
       },
     });
   }

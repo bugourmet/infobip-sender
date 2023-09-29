@@ -27,9 +27,6 @@ export class ViberService extends InfobipBaseService implements ViberChannel {
             content: {
               text: message,
             },
-            ...(this.config.notifyUrl && {
-              notifyUrl: this.config.notifyUrl,
-            }),
           },
         ],
       },
@@ -55,9 +52,6 @@ export class ViberService extends InfobipBaseService implements ViberChannel {
           mediaUrl,
         },
       },
-      ...(this.config.notifyUrl && {
-        notifyUrl: this.config.notifyUrl,
-      }),
     });
   }
 
@@ -89,9 +83,6 @@ export class ViberService extends InfobipBaseService implements ViberChannel {
             buttonTitle,
           }),
         },
-        ...(this.config.notifyUrl && {
-          notifyUrl: this.config.notifyUrl,
-        }),
       },
     });
   }
@@ -145,9 +136,6 @@ export class ViberService extends InfobipBaseService implements ViberChannel {
             buttonAction && { title: buttonText, action: buttonAction }),
           ...(imageUrl && { mediaUrl: imageUrl }),
         },
-        ...(this.config.notifyUrl && {
-          notifyUrl: this.config.notifyUrl,
-        }),
       },
     });
   }

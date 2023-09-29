@@ -30,9 +30,6 @@ export class SMSService extends InfobipBaseService implements SMSChannel {
             from: sender,
             destinations,
             text: message,
-            ...(this.config.notifyUrl && {
-              notifyUrl: this.config.notifyUrl,
-            }),
           },
         ],
       },
