@@ -4,13 +4,13 @@ import {
   SMSChannel,
   ViberChannel,
   WhatsAppChannel,
-} from '../types/service-types/service-types';
+} from "../types/service-types/service-types";
 import {
   NumbersService,
   SMSService,
   ViberService,
   WhatsAppService,
-} from './infobip/index';
+} from "./infobip/index";
 
 export class InfobipMessageSender {
   private config: MessagingServiceConfiguration;

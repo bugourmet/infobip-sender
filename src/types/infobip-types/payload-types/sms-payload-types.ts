@@ -1,4 +1,4 @@
-import { Destination } from '../../service-types/service-types';
+import { Destination } from "../../service-types/service-types";
 
 interface InfobipSmsMessage {
   from: string;

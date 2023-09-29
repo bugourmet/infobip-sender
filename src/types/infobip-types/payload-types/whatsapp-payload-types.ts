@@ -1,4 +1,4 @@
-import { TemplateData } from '../request-types';
+import { TemplateData } from "../request-types";
 
 interface InfobipWhatsAppTextPayload {
   from: string;

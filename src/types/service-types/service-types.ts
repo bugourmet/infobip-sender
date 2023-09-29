@@ -1,4 +1,4 @@
-import { TemplateData } from '../infobip-types/request-types';
+import { TemplateData } from "../infobip-types/request-types";
 
 export interface MessagingServiceConfiguration {
   apiKey: string;

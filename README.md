@@ -9,6 +9,12 @@ Simple Infobip outbound messaging library written in typescript
 
 ## USAGE
 
+import the
+
+```
+
+```
+
 ## TODO
 
 - implement Infobip Messaging API once it's out of Early Access

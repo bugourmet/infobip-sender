@@ -1,5 +1,5 @@
-import * as os from 'os';
-import AgentKeepAlive from 'agentkeepalive';
+import * as os from "os";
+import AgentKeepAlive from "agentkeepalive";
 
 export const httpAgent = new AgentKeepAlive({
   maxSockets: 128 / os.cpus().length,
