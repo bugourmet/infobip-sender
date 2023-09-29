@@ -1,9 +1,9 @@
-import { TemplateData } from '../../types/infobip-types/request-types';
+import { TemplateData } from "../../types/infobip-types/request-types";
 import {
   MessagingServiceConfiguration,
   WhatsAppChannel,
-} from '../../types/service-types/service-types';
-import { InfobipBaseService } from './base-service';
+} from "../../types/service-types/service-types";
+import { InfobipBaseService } from "./base-service";
 
 export class WhatsAppService
   extends InfobipBaseService
@@ -17,7 +17,7 @@ export class WhatsAppService
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
       baseUrl: this.config.baseUrl,
-      method: 'POST',
+      method: "POST",
       url: `/whatsapp/1/message/text`,
       data: {
         from,
@@ -25,9 +25,6 @@ export class WhatsAppService
         content: {
           text: message,
         },
-        ...(this.config.notifyUrl && {
-          notifyUrl: this.config.notifyUrl,
-        }),
       },
     });
   }
@@ -40,7 +37,7 @@ export class WhatsAppService
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
       baseUrl: this.config.baseUrl,
-      method: 'POST',
+      method: "POST",
       url: `/whatsapp/1/message/document`,
       data: {
         from,
@@ -48,9 +45,6 @@ export class WhatsAppService
         content: {
           mediaUrl,
         },
-        ...(this.config.notifyUrl && {
-          notifyUrl: this.config.notifyUrl,
-        }),
       },
     });
   }
@@ -64,7 +58,7 @@ export class WhatsAppService
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
       baseUrl: this.config.baseUrl,
-      method: 'POST',
+      method: "POST",
       url: `/whatsapp/1/message/image`,
       data: {
         from,
@@ -75,9 +69,6 @@ export class WhatsAppService
             caption,
           }),
         },
-        ...(this.config.notifyUrl && {
-          notifyUrl: this.config.notifyUrl,
-        }),
       },
     });
   }
@@ -86,7 +77,7 @@ export class WhatsAppService
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
       baseUrl: this.config.baseUrl,
-      method: 'POST',
+      method: "POST",
       url: `/whatsapp/1/message/audio`,
       data: {
         from,
@@ -94,9 +85,6 @@ export class WhatsAppService
         content: {
           mediaUrl,
         },
-        ...(this.config.notifyUrl && {
-          notifyUrl: this.config.notifyUrl,
-        }),
       },
     });
   }
@@ -105,7 +93,7 @@ export class WhatsAppService
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
       baseUrl: this.config.baseUrl,
-      method: 'POST',
+      method: "POST",
       url: `/whatsapp/1/message/video`,
       data: {
         from,
@@ -113,9 +101,6 @@ export class WhatsAppService
         content: {
           mediaUrl,
         },
-        ...(this.config.notifyUrl && {
-          notifyUrl: this.config.notifyUrl,
-        }),
       },
     });
   }
@@ -130,7 +115,7 @@ export class WhatsAppService
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
       baseUrl: this.config.baseUrl,
-      method: 'POST',
+      method: "POST",
       url: `/whatsapp/1/message/template`,
       data: {
         messages: [
@@ -144,9 +129,6 @@ export class WhatsAppService
             },
           },
         ],
-        ...(this.config.notifyUrl && {
-          notifyUrl: this.config.notifyUrl,
-        }),
       },
     });
   }
@@ -155,7 +137,7 @@ export class WhatsAppService
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
       baseUrl: this.config.baseUrl,
-      method: 'GET',
+      method: "GET",
       url: `/whatsapp/2/senders/${sender}/templates`,
     });
   }

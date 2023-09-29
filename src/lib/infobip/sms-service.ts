@@ -2,8 +2,8 @@ import {
   Destination,
   MessagingServiceConfiguration,
   SMSChannel,
-} from '../../types/service-types/service-types';
-import { InfobipBaseService } from './base-service';
+} from "../../types/service-types/service-types";
+import { InfobipBaseService } from "./base-service";
 
 export class SMSService extends InfobipBaseService implements SMSChannel {
   constructor(config: MessagingServiceConfiguration) {
@@ -22,17 +22,14 @@ export class SMSService extends InfobipBaseService implements SMSChannel {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
       baseUrl: this.config.baseUrl,
-      method: 'POST',
-      url: '/sms/2/text/advanced',
+      method: "POST",
+      url: "/sms/2/text/advanced",
       data: {
         messages: [
           {
             from: sender,
             destinations,
             text: message,
-            ...(this.config.notifyUrl && {
-              notifyUrl: this.config.notifyUrl,
-            }),
           },
         ],
       },

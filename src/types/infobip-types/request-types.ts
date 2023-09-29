@@ -34,7 +34,7 @@ export interface WhatsAppLocationHeader extends WhatsAppBaseHeader {
   longitude: number;
 }
 
-export type WhatsAppHeader =
+type WhatsAppHeader =
   | WhatsAppTextHeader
   | WhatsAppDocumentHeader
   | WhatsAppImageAndVideoHeader

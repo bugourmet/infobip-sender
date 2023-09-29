@@ -1,8 +1,8 @@
 import {
   MessagingServiceConfiguration,
   ViberChannel,
-} from '../../types/service-types/service-types';
-import { InfobipBaseService } from './base-service';
+} from "../../types/service-types/service-types";
+import { InfobipBaseService } from "./base-service";
 
 export class ViberService extends InfobipBaseService implements ViberChannel {
   constructor(config: MessagingServiceConfiguration) {
@@ -17,8 +17,8 @@ export class ViberService extends InfobipBaseService implements ViberChannel {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
       baseUrl: this.config.baseUrl,
-      method: 'POST',
-      url: '/viber/1/message/text',
+      method: "POST",
+      url: "/viber/1/message/text",
       data: {
         messages: [
           {
@@ -42,8 +42,8 @@ export class ViberService extends InfobipBaseService implements ViberChannel {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
       baseUrl: this.config.baseUrl,
-      method: 'POST',
-      url: '/viber/1/message/file',
+      method: "POST",
+      url: "/viber/1/message/file",
       data: {
         from,
         to,
@@ -67,8 +67,8 @@ export class ViberService extends InfobipBaseService implements ViberChannel {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
       baseUrl: this.config.baseUrl,
-      method: 'POST',
-      url: '/viber/1/message/video',
+      method: "POST",
+      url: "/viber/1/message/video",
       data: {
         from,
         to,
@@ -96,20 +96,45 @@ export class ViberService extends InfobipBaseService implements ViberChannel {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
       baseUrl: this.config.baseUrl,
-      method: 'POST',
-      url: '/viber/1/message/image',
+      method: "POST",
+      url: "/viber/1/message/image",
       data: {
         from,
         to,
         content: {
-          from,
-          to,
-          content: {
-            ...(caption && {
-              text: caption,
-            }),
-            mediaUrl: imageUrl,
-          },
+          ...(caption && {
+            text: caption,
+          }),
+          mediaUrl: imageUrl,
+        },
+        ...(this.config.notifyUrl && {
+          notifyUrl: this.config.notifyUrl,
+        }),
+      },
+    });
+  }
+
+  async sendButtonMessage(
+    from: string,
+    to: string,
+    message: string,
+    buttonText: string,
+    buttonAction: string,
+    imageUrl?: string
+  ): Promise<void> {
+    return await this.sendApiRequest({
+      apiKey: this.config.apiKey,
+      baseUrl: this.config.baseUrl,
+      method: "POST",
+      url: "/viber/1/message/image",
+      data: {
+        from,
+        to,
+        content: {
+          text: message,
+          ...(buttonText &&
+            buttonAction && { title: buttonText, action: buttonAction }),
+          ...(imageUrl && { mediaUrl: imageUrl }),
         },
       },
     });

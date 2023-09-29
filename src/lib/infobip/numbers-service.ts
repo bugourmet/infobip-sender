@@ -1,8 +1,8 @@
 import {
   MessagingServiceConfiguration,
   NumbersApi,
-} from '../../types/service-types/service-types';
-import { InfobipBaseService } from './base-service';
+} from "../../types/service-types/service-types";
+import { InfobipBaseService } from "./base-service";
 
 export class NumbersService extends InfobipBaseService implements NumbersApi {
   constructor(config: MessagingServiceConfiguration) {
@@ -13,8 +13,8 @@ export class NumbersService extends InfobipBaseService implements NumbersApi {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
       baseUrl: this.config.baseUrl,
-      method: 'GET',
-      url: '/numbers/1/numbers',
+      method: "GET",
+      url: "/numbers/1/numbers",
     });
   }
 }

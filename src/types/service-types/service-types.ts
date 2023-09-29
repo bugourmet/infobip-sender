@@ -1,4 +1,4 @@
-import { TemplateData } from '../infobip-types/request-types';
+import { TemplateData } from "../infobip-types/request-types";
 
 export interface MessagingServiceConfiguration {
   apiKey: string;
@@ -36,6 +36,15 @@ export interface ViberChannel {
     mediaUrl: string,
     mediaDuration: number,
     message?: string
+  ): Promise<void>;
+
+  sendButtonMessage(
+    from: string,
+    to: string,
+    message: string,
+    buttonText: string,
+    buttonAction: string,
+    imageUrl?: string
   ): Promise<void>;
 }
 

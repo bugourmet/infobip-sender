@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-import { httpAgent, httpsAgent } from './http-agent.util';
+import { httpAgent, httpsAgent } from "./http-agent.util";
 
 const clientConfig = {
   httpAgent,
