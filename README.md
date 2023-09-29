@@ -16,6 +16,8 @@ Simple Infobip outbound messaging library written in typescript
 
 <h3>Usage example 💡</h3>
 
+fist run `npm run build`
+
 ```ts
 import { InfobipMessageService } from "./build/index";
 const config = { apiKey: "YourApiKey" };
