@@ -1,25 +1,66 @@
-# Infobip Sender
+<h1> Infobip Sender </h1>
 
 Simple Infobip outbound messaging library written in typescript
 
-## Features
+[![GitHub stars](https://img.shields.io/github/stars/runtimeterrorist/infobip-sender.svg)](https://github.com/runtimeterrorist/infobip-sender/stargazers)
+[![GitHub license](https://img.shields.io/github/license/runtimeterrorist/infobip-sender.svg)](https://github.com/runtimeterrorist/infobip-sender/blob/master/LICENSE)
+[![GitHub forks](https://img.shields.io/github/forks/runtimeterrorist/infobip-sender.svg)](https://github.com/runtimeterrorist/infobip-sender/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/runtimeterrorist/infobip-sender.svg)](https://github.com/runtimeterrorist/infobip-sender/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/runtimeterrorist/infobip-sender.svg)](https://github.com/runtimeterrorist/infobip-sender/pulls)
+[![GitHub last commit](https://img.shields.io/github/last-commit/runtimeterrorist/infobip-sender.svg)](https://github.com/runtimeterrorist/infobip-sender/commits/master)
 
-- Supports sending almost all message types for SMS,WhatsApp and Viber channels
-- Fetch purchased numbers and WhatsApp Templates
+<h3>Features 🚀</h3>
 
-## USAGE
+<li>Supports sending all message types for SMS,WhatsApp and Viber channel.</li>
+<li>Supports fetching purchased numbers for account and WhatsApp Templates for specified number with the capability.</li>
 
-import the
+<h3>Usage example 💡</h3>
 
+```ts
+import { InfobipMessageService } from "./build/index";
+const config = { apiKey: "YourApiKey" };
+const messagingService = new InfobipMessageService(config);
+
+const smsMessage = await messagingService.sms.sendSMS(
+  "YourSenderNumberHere",
+  "RecipientPhoneNumber",
+  "Message"
+);
+
+const bulkSmsMessages = await messagingService.sms.sendSMS(
+  "YourSenderNumberHere",
+  ["RecipientPhoneNumber1", "RecipientPhoneNumber2"],
+  "Message"
+);
 ```
 
+...
+
+<h5>Messaging Service Configuration</h5>
+
+```ts
+{
+    apiKey: string;
+    piIntegrator?: string;
+    piPlatform?: string;
+    baseUrl?: string;
+    notifyUrl?: string;
+}
 ```
 
-## TODO
+⚠️ <b>IMPORTANT NOTE:</b> The library does not include built-in logging nor error-handling mechanisms,responsibility for implementing such features remains on the end user.
 
-- implement Infobip Messaging API once it's out of Early Access
-- tests
+For more info refer to <a href="https://www.infobip.com/docs/api">Infobip API Documentation</a>
 
-## License
+<h3>TODO ✔️</h3>
+<li> implement Infobip Messaging API once it's out of Early Access</li>
+<li> tests & improvements</li>
+<li> add VOICE and RCS channels</li>
+<li> ?publish to NPM</li>
+
+<h3>Contributing 🤝</h3>
+Pull requests are welcome. If you have a suggestion open an issue with the tag "enhancement".
+
+<h3>License 📝</h3>
 
 MIT
