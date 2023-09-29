@@ -12,31 +12,41 @@ import {
   WhatsAppService,
 } from "./infobip/index";
 
-export class InfobipMessageSender {
+export interface MessageSender {
+  sms: SMSChannel;
+  whatsapp: WhatsAppChannel;
+  viber: ViberChannel;
+  numbers: NumbersApi;
+}
+
+export class InfobipMessageService implements MessageSender {
   private config: MessagingServiceConfiguration;
+  private smsInstance: SMSChannel;
+  private whatsappInstance: WhatsAppChannel;
+  private viberInstance: ViberChannel;
+  private numbersInstance: NumbersApi;
 
   constructor(config: MessagingServiceConfiguration) {
     this.config = config;
+    this.smsInstance = new SMSService(this.config);
+    this.whatsappInstance = new WhatsAppService(this.config);
+    this.viberInstance = new ViberService(this.config);
+    this.numbersInstance = new NumbersService(this.config);
   }
 
   get sms(): SMSChannel {
-    return new SMSService(this.config);
+    return this.smsInstance;
   }
 
   get whatsapp(): WhatsAppChannel {
-    return new WhatsAppService(this.config);
+    return this.whatsappInstance;
   }
 
   get viber(): ViberChannel {
-    return new ViberService(this.config);
+    return this.viberInstance;
   }
 
   get numbers(): NumbersApi {
-    return new NumbersService(this.config);
+    return this.numbersInstance;
   }
-
-  // TODO
-  // RCS
-  // VOICE
-  // MMS
 }
