@@ -114,4 +114,33 @@ export class ViberService extends InfobipBaseService implements ViberChannel {
       },
     });
   }
+
+  async sendButtonMessage(
+    from: string,
+    to: string,
+    message: string,
+    buttonText: string,
+    buttonAction: string,
+    imageUrl?: string
+  ): Promise<void> {
+    return await this.sendApiRequest({
+      apiKey: this.config.apiKey,
+      baseUrl: this.config.baseUrl,
+      method: 'POST',
+      url: '/viber/1/message/image',
+      data: {
+        from,
+        to,
+        content: {
+          text: message,
+          ...(buttonText &&
+            buttonAction && { title: buttonText, action: buttonAction }),
+          ...(imageUrl && { mediaUrl: imageUrl }),
+        },
+        ...(this.config.notifyUrl && {
+          notifyUrl: this.config.notifyUrl,
+        }),
+      },
+    });
+  }
 }

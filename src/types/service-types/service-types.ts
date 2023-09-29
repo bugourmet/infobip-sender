@@ -37,6 +37,15 @@ export interface ViberChannel {
     mediaDuration: number,
     message?: string
   ): Promise<void>;
+
+  sendButtonMessage(
+    from: string,
+    to: string,
+    message: string,
+    buttonText: string,
+    buttonAction: string,
+    imageUrl?: string
+  ): Promise<void>;
 }
 
 export interface WhatsAppChannel {
