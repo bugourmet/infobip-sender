@@ -1,6 +1,9 @@
 {
   "name": "infobip-sender",
-  "private": true,
+  "private": false,
+  "author": {
+    "name": "@runtimeterrorist"
+  },
   "version": "0.0.1",
   "type": "module",
   "files": [
