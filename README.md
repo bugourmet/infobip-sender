@@ -14,15 +14,21 @@ Simple Infobip outbound messaging library written in typescript
 <li>Supports sending all message types for SMS,WhatsApp and Viber channel.</li>
 <li>Supports fetching purchased numbers for account and WhatsApp Templates for specified number with the capability.</li>
 
-<h3>Usage example 💡</h3>
+<h3>Usage 💡</h3>
 
-fist run `npm run build`
+install the package
+
+`npm install infobip-sender`
+
+Example:
 
 ```ts
-import { InfobipMessageService } from "./build/index";
+import { InfobipMessageService } from "infobip-sender";
 const config = { apiKey: "YourApiKey" };
+// Create an instance with your configuration
 const messagingService = new InfobipMessageService(config);
 
+//use sendSms() method to s end a single or bulk sms message
 const smsMessage = await messagingService.sms.sendSMS(
   "YourSenderNumberHere",
   "RecipientPhoneNumber",
@@ -58,7 +64,6 @@ For more info refer to <a href="https://www.infobip.com/docs/api">Infobip API Do
 <li> implement Infobip Messaging API once it's out of Early Access</li>
 <li> tests & improvements</li>
 <li> add VOICE and RCS channels</li>
-<li> ?publish to NPM</li>
 
 <h3>Contributing 🤝</h3>
 Pull requests are welcome. If you have a suggestion open an issue with the tag "enhancement".
