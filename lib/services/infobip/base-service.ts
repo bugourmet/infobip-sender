@@ -1,6 +1,6 @@
 import { MessagingServiceConfiguration } from "../../types/service-types/service-types";
-import { HttpRequestConfig } from "../../types/utils/http-agent.types";
-import { httpClient } from "../../utils/http-client/http-client.util";
+import { HttpRequestConfig } from "../../types/util-types/http-agent-types";
+import { httpClient } from "../../utils/http-client/http-client.utils";
 
 export class InfobipBaseService {
   constructor(protected config: MessagingServiceConfiguration) {}

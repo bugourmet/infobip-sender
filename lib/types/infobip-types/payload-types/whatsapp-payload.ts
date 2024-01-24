@@ -31,7 +31,7 @@ interface WhatsAppTemplateMessage {
   to: string;
   content: {
     templateName: string;
-    templateData: TemplateData;
+    templateData?: TemplateData;
     language: string;
   };
   notifyUrl?: string;

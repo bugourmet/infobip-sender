@@ -16,7 +16,7 @@ export class ViberService extends InfobipBaseService implements ViberChannel {
   ): Promise<void> {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
-      baseUrl: this.config.baseUrl,
+      baseUrl: this.config.baseUrl ?? "api.infobip.com",
       method: "POST",
       url: "/viber/1/message/text",
       data: {
@@ -41,7 +41,7 @@ export class ViberService extends InfobipBaseService implements ViberChannel {
   ): Promise<void> {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
-      baseUrl: this.config.baseUrl,
+      baseUrl: this.config.baseUrl ?? "api.infobip.com",
       method: "POST",
       url: "/viber/1/message/file",
       data: {
@@ -66,7 +66,7 @@ export class ViberService extends InfobipBaseService implements ViberChannel {
   ): Promise<void> {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
-      baseUrl: this.config.baseUrl,
+      baseUrl: this.config.baseUrl ?? "api.infobip.com",
       method: "POST",
       url: "/viber/1/message/video",
       data: {
@@ -95,7 +95,7 @@ export class ViberService extends InfobipBaseService implements ViberChannel {
   ): Promise<void> {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
-      baseUrl: this.config.baseUrl,
+      baseUrl: this.config.baseUrl ?? "api.infobip.com",
       method: "POST",
       url: "/viber/1/message/image",
       data: {
@@ -124,7 +124,7 @@ export class ViberService extends InfobipBaseService implements ViberChannel {
   ): Promise<void> {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
-      baseUrl: this.config.baseUrl,
+      baseUrl: this.config.baseUrl ?? "api.infobip.com",
       method: "POST",
       url: "/viber/1/message/image",
       data: {

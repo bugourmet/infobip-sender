@@ -1,4 +1,5 @@
-import { InfobipPayload } from "../infobip-types/payload-types/payload-types";
+import { InfobipPayload } from "../infobip-types/payload-types";
+
 export type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
 export interface HttpRequestConfig {

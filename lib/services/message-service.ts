@@ -12,7 +12,7 @@ import {
   WhatsAppService,
 } from "./infobip/index";
 
-export interface MessageSender {
+interface MessageSender {
   sms: SMSChannel;
   whatsapp: WhatsAppChannel;
   viber: ViberChannel;

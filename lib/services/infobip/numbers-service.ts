@@ -12,7 +12,7 @@ export class NumbersService extends InfobipBaseService implements NumbersApi {
   async getPurchasedNumbers(): Promise<void> {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
-      baseUrl: this.config.baseUrl,
+      baseUrl: this.config.baseUrl ?? "api.infobip.com",
       method: "GET",
       url: "/numbers/1/numbers",
     });

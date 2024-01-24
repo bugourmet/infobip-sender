@@ -16,7 +16,7 @@ export class WhatsAppService
   async sendText(from: string, to: string, message: string): Promise<void> {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
-      baseUrl: this.config.baseUrl,
+      baseUrl: this.config.baseUrl ?? "api.infobip.com",
       method: "POST",
       url: `/whatsapp/1/message/text`,
       data: {
@@ -36,7 +36,7 @@ export class WhatsAppService
   ): Promise<void> {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
-      baseUrl: this.config.baseUrl,
+      baseUrl: this.config.baseUrl ?? "api.infobip.com",
       method: "POST",
       url: `/whatsapp/1/message/document`,
       data: {
@@ -57,7 +57,7 @@ export class WhatsAppService
   ): Promise<void> {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
-      baseUrl: this.config.baseUrl,
+      baseUrl: this.config.baseUrl ?? "api.infobip.com",
       method: "POST",
       url: `/whatsapp/1/message/image`,
       data: {
@@ -76,7 +76,7 @@ export class WhatsAppService
   async sendAudio(from: string, to: string, mediaUrl: string): Promise<void> {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
-      baseUrl: this.config.baseUrl,
+      baseUrl: this.config.baseUrl ?? "api.infobip.com",
       method: "POST",
       url: `/whatsapp/1/message/audio`,
       data: {
@@ -92,7 +92,7 @@ export class WhatsAppService
   async sendVideo(from: string, to: string, mediaUrl: string): Promise<void> {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
-      baseUrl: this.config.baseUrl,
+      baseUrl: this.config.baseUrl ?? "api.infobip.com",
       method: "POST",
       url: `/whatsapp/1/message/video`,
       data: {
@@ -114,7 +114,7 @@ export class WhatsAppService
   ): Promise<void> {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
-      baseUrl: this.config.baseUrl,
+      baseUrl: this.config.baseUrl ?? "api.infobip.com",
       method: "POST",
       url: `/whatsapp/1/message/template`,
       data: {
@@ -124,7 +124,7 @@ export class WhatsAppService
             to: recipient,
             content: {
               templateName,
-              templateData,
+              ...(templateData && { templateData }),
               language: templateLanguage,
             },
           },
@@ -136,7 +136,7 @@ export class WhatsAppService
   async getTemplates(sender: string): Promise<void> {
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
-      baseUrl: this.config.baseUrl,
+      baseUrl: this.config.baseUrl ?? "api.infobip.com",
       method: "GET",
       url: `/whatsapp/2/senders/${sender}/templates`,
     });

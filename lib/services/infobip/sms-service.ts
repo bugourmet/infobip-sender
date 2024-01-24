@@ -21,7 +21,7 @@ export class SMSService extends InfobipBaseService implements SMSChannel {
 
     return await this.sendApiRequest({
       apiKey: this.config.apiKey,
-      baseUrl: this.config.baseUrl,
+      baseUrl: this.config.baseUrl ?? "api.infobip.com",
       method: "POST",
       url: "/sms/2/text/advanced",
       data: {
