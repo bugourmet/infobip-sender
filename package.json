@@ -2,11 +2,11 @@
   "name": "infobip-sender",
   "private": false,
   "author": {
-    "name": "@runtimeterrorist"
+    "name": "@bugourmet"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/runtimeterrorist/infobip-sender.git"
+    "url": "https://github.com/bugourmet/infobip-sender.git"
   },
   "version": "1.1.0",
   "type": "module",
